@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dani Cuts — Бръснарница Варна</title>
+  <meta name="description" content="Прецизни мъжки прически и бръснене. Бръснарница Dani Cuts, Варна, България.">
+  <meta property="og:title" content="Dani Cuts — Бръснарница Варна">
+  <meta property="og:description" content="Прецизни мъжки прически. Бръснене. Без компромис.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Space Grotesk', sans-serif; background: #080808; color: #F0EAE0; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #080808; }
+    ::-webkit-scrollbar-thumb { background: #C97A2E; }
+
+    /* ── SHARED ── */
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.28em; color: #C97A2E;
+      text-transform: uppercase; margin-bottom: 16px;
+    }
+    .section-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 80px; font-weight: 900;
+      color: #F0EAE0; text-transform: uppercase;
+      line-height: 0.88; margin-bottom: 64px;
+    }
+    .amber-rule { width: 52px; height: 3px; background: #C97A2E; }
+    .img-placeholder {
+      width: 100%; height: 100%;
+      background: repeating-linear-gradient(-45deg, #131313 0, #131313 12px, #0E0E0E 12px, #0E0E0E 24px);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 8px;
+    }
+    .img-placeholder span { font-family: monospace; font-size: 11px; color: #303030; letter-spacing: 0.15em; text-transform: uppercase; }
+    .corner-accent { position: absolute; background: #C97A2E; z-index: 2; }
+    .ca-tl-h { top: 0; left: 0; width: 52px; height: 3px; }
+    .ca-tl-v { top: 0; left: 0; width: 3px; height: 52px; }
+    .ca-br-h { bottom: 0; right: 0; width: 52px; height: 3px; }
+    .ca-br-v { bottom: 0; right: 0; width: 3px; height: 52px; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      height: 80px; display: flex; align-items: center;
+      justify-content: space-between; padding: 0 80px;
+      background: rgba(8, 8, 8, .96);
+      border-bottom: 1px solid rgba(240, 234, 224, .06);
+      backdrop-filter: blur(10px);
+    }
+    .nav-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px; font-weight: 900;
+      letter-spacing: 0.22em; color: #F0EAE0;
+      text-decoration: none; text-transform: uppercase;
+    }
+    .nav-links { display: flex; gap: 44px; align-items: center; }
+    .nav-links a {
+      font-size: 12px; letter-spacing: 0.1em;
+      color: rgba(240, 234, 224, .38);
+      text-transform: uppercase; text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: #F0EAE0; }
+    .btn-cta {
+      background: #C97A2E; color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 13px;
+      letter-spacing: 0.2em; padding: 14px 32px;
+      text-transform: uppercase; text-decoration: none;
+      border: none; cursor: pointer; white-space: nowrap;
+      transition: opacity .2s;
+    }
+    .btn-cta:hover { opacity: .88; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: calc(100vh - 80px);
+      display: flex; align-items: center;
+      padding: 0 120px; gap: 80px;
+      background: #080808; position: relative; overflow: hidden;
+    }
+    .scanline {
+      position: absolute; inset: 0; pointer-events: none;
+      background: repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(255,255,255,.006) 3px, rgba(255,255,255,.006) 4px);
+    }
+    .hero-text { flex: none; width: 580px; padding: 80px 0; z-index: 1; }
+    .hero-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.28em; color: #C97A2E;
+      text-transform: uppercase; margin-bottom: 36px;
+    }
+    .hero-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 168px; font-weight: 900;
+      line-height: 0.83; color: #F0EAE0;
+      letter-spacing: -0.01em; text-transform: uppercase;
+    }
+    .hero-tagline {
+      font-size: 17px; color: rgba(240, 234, 224, .44);
+      line-height: 1.7; margin: 28px 0 44px; max-width: 380px;
+    }
+    .hero-ctas { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-block; background: #C97A2E; color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 16px;
+      letter-spacing: 0.18em; padding: 18px 52px;
+      text-transform: uppercase; text-decoration: none;
+      white-space: nowrap; transition: opacity .2s;
+    }
+    .btn-primary:hover { opacity: .88; }
+    .btn-ghost {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600; font-size: 14px;
+      letter-spacing: 0.12em; color: rgba(240, 234, 224, .42);
+      text-transform: uppercase; text-decoration: none;
+      border-bottom: 1px solid rgba(240, 234, 224, .18); padding-bottom: 2px;
+      white-space: nowrap; transition: color .2s, border-color .2s;
+    }
+    .btn-ghost:hover { color: rgba(240, 234, 224, .72); border-color: rgba(240, 234, 224, .4); }
+    .hero-phone { margin-top: 56px; font-size: 13px; color: rgba(240, 234, 224, .22); letter-spacing: 0.04em; }
+    .hero-img {
+      flex: 1; align-self: stretch;
+      position: relative; min-height: 480px;
+      overflow: hidden; z-index: 1;
+    }
+    .hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .scroll-hint {
+      position: absolute; bottom: 36px; left: 120px;
+      display: flex; align-items: center; gap: 12px; z-index: 1;
+    }
+    .scroll-hint-line { width: 36px; height: 1px; background: rgba(240, 234, 224, .18); }
+    .scroll-hint span { font-size: 10px; letter-spacing: 0.2em; color: rgba(240, 234, 224, .22); text-transform: uppercase; }
+
+    /* ── УСЛУГИ ── */
+    #uslug {
+      background: #0A0A0A;
+      border-top: 1px solid rgba(201, 122, 46, .15);
+      padding: 96px 120px;
+    }
+    .srv-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: rgba(240, 234, 224, .05);
+    }
+    .srv-card { background: #0A0A0A; padding: 36px 32px; }
+    .srv-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24px; font-weight: 600; color: #F0EAE0;
+      text-transform: uppercase; line-height: 1.1;
+      letter-spacing: 0.07em; margin-bottom: 10px;
+    }
+    .srv-sub { font-size: 12px; color: rgba(240, 234, 224, .28); letter-spacing: 0.06em; margin-bottom: 24px; }
+    .srv-price { font-family: 'Barlow Condensed', sans-serif; font-size: 38px; font-weight: 700; color: #C97A2E; }
+    .cta-strip {
+      background: #C97A2E; padding: 40px 56px;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 32px;
+      margin-top: 64px; flex-wrap: wrap;
+    }
+    .cta-strip-h {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 52px; font-weight: 900;
+      color: #fff; text-transform: uppercase; line-height: 1;
+    }
+    .btn-cta-white {
+      background: #fff; color: #C97A2E;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; font-size: 16px;
+      letter-spacing: 0.18em; padding: 20px 56px;
+      text-transform: uppercase; text-decoration: none;
+      white-space: nowrap; border: none; cursor: pointer;
+      transition: opacity .2s;
+    }
+    .btn-cta-white:hover { opacity: .88; }
+
+    /* ── ЗА НАС ── */
+    #za-nas {
+      background: #080808;
+      border-top: 1px solid rgba(240, 234, 224, .06);
+      padding: 96px 120px;
+    }
+    .abt-cols { display: flex; gap: 80px; align-items: flex-start; }
+    .abt-story { flex: 1; }
+    .abt-story p { font-size: 19px; color: rgba(240, 234, 224, .62); line-height: 1.75; margin-bottom: 24px; }
+    .stats-row { display: flex; border-top: 1px solid rgba(240, 234, 224, .08); margin-top: 32px; }
+    .stat { flex: 1; padding: 32px 0; border-right: 1px solid rgba(240, 234, 224, .08); }
+    .stat:not(:first-child) { padding-left: 28px; }
+    .stat:last-child { border-right: none; }
+    .stat-n { font-family: 'Barlow Condensed', sans-serif; font-size: 60px; font-weight: 900; color: #C97A2E; line-height: 1; }
+    .stat-l { font-size: 12px; color: rgba(240, 234, 224, .32); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 8px; }
+    .abt-img { flex: none; width: 420px; height: 560px; position: relative; overflow: hidden; }
+    .abt-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+
+    /* ── ГАЛЕРИЯ ── */
+    #galeriya {
+      background: #0A0A0A;
+      border-top: 1px solid rgba(201, 122, 46, .15);
+      padding: 96px 120px;
+    }
+    .gal-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 210px; gap: 3px;
+      grid-auto-flow: row dense;
+    }
+    .gal-cell { overflow: hidden; position: relative; }
+    .gal-cell img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+    .gal-cell:hover img { transform: scale(1.04); }
+    .gal-ph {
+      width: 100%; height: 100%;
+      background: repeating-linear-gradient(-45deg, #141414 0, #141414 10px, #101010 10px, #101010 20px);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .gal-ph span { font-family: monospace; font-size: 10px; color: #2a2a2a; letter-spacing: 0.12em; text-transform: uppercase; }
+
+    /* ── РЕЗЕРВАЦИЯ ── */
+    #rezervatsiya {
+      background: #080808;
+      border-top: 1px solid rgba(240, 234, 224, .06);
+      padding: 96px 120px;
+    }
+    .bk-cols { display: flex; gap: 80px; align-items: flex-start; }
+    .bk-calendly { flex: 1; }
+    .bk-info { flex: none; width: 340px; }
+    .info-label { font-size: 11px; letter-spacing: 0.22em; color: #C97A2E; text-transform: uppercase; margin-bottom: 20px; }
+    .hours-table { border-top: 1px solid rgba(240, 234, 224, .07); margin-bottom: 44px; }
+    .hour-row {
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 14px 0;
+      border-bottom: 1px solid rgba(240, 234, 224, .07);
+    }
+    .hour-day { font-size: 14px; color: rgba(240, 234, 224, .48); }
+    .hour-time { font-size: 14px; color: #F0EAE0; font-weight: 500; }
+    .contacts { display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px; }
+    .contact-line { font-size: 15px; color: rgba(240, 234, 224, .58); line-height: 1.55; }
+    .map-wrap { height: 220px; overflow: hidden; border: 1px solid rgba(240, 234, 224, .06); }
+    .map-wrap iframe { width: 100%; height: 100%; border: 0; filter: grayscale(1) invert(1) contrast(.8); }
+    .map-ph {
+      height: 220px;
+      background: repeating-linear-gradient(-45deg, #131313 0, #131313 10px, #0E0E0E 10px, #0E0E0E 20px);
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(240, 234, 224, .06);
+    }
+    .map-ph span { font-family: monospace; font-size: 10px; color: #2c2c2c; letter-spacing: 0.12em; text-transform: uppercase; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #060606;
+      border-top: 1px solid rgba(240, 234, 224, .06);
+      padding: 72px 120px 36px;
+    }
+    .ft-cols { display: flex; gap: 64px; margin-bottom: 56px; }
+    .ft-brand { flex: 2; }
+    .ft-logo { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 900; letter-spacing: 0.22em; color: #F0EAE0; text-transform: uppercase; margin-bottom: 12px; }
+    .ft-tagline { font-size: 14px; color: rgba(240, 234, 224, .32); line-height: 1.65; max-width: 240px; }
+    .ft-col { flex: 1; }
+    .ft-col-label { font-size: 11px; letter-spacing: 0.2em; color: #C97A2E; text-transform: uppercase; margin-bottom: 20px; }
+    .ft-links { display: flex; flex-direction: column; gap: 12px; }
+    .ft-links a, .ft-links div { font-size: 14px; color: rgba(240, 234, 224, .4); text-decoration: none; transition: color .2s; }
+    .ft-links a:hover { color: rgba(240, 234, 224, .72); }
+    .ft-bottom {
+      border-top: 1px solid rgba(240, 234, 224, .06);
+      padding-top: 24px; display: flex;
+      justify-content: space-between; align-items: center;
+    }
+    .copyright { font-size: 12px; color: rgba(240, 234, 224, .2); letter-spacing: 0.04em; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 40px; }
+      .nav-links { display: none; }
+      #hero { flex-direction: column; gap: 0; padding: 64px 40px 48px; min-height: auto; }
+      .hero-text { width: 100%; padding: 0; }
+      .hero-heading { font-size: 110px; }
+      .hero-img { display: none; }
+      .scroll-hint { display: none; }
+      .section-heading { font-size: 56px; }
+      #uslug, #za-nas, #galeriya, #rezervatsiya, footer { padding-left: 40px; padding-right: 40px; }
+      .srv-grid { grid-template-columns: 1fr 1fr; }
+      .cta-strip { flex-direction: column; gap: 24px; text-align: center; padding: 32px 40px; }
+      .cta-strip-h { font-size: 36px; }
+      .abt-cols { flex-direction: column; }
+      .abt-img { display: none; }
+      .gal-grid { grid-template-columns: 1fr 1fr; }
+      .bk-cols { flex-direction: column; }
+      .bk-info { width: 100%; }
+      .ft-cols { flex-wrap: wrap; gap: 40px; }
+    }
+    @media (max-width: 600px) {
+      nav { padding: 0 24px; }
+      .hero-heading { font-size: 86px; }
+      .section-heading { font-size: 48px; margin-bottom: 48px; }
+      #uslug, #za-nas, #galeriya, #rezervatsiya, footer { padding-left: 24px; padding-right: 24px; }
+      .srv-grid { grid-template-columns: 1fr; }
+      .cta-strip-h { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav>
+  <a href="#hero" class="nav-logo">DANI CUTS</a>
+  <div class="nav-links">
+    <a href="#uslug">Услуги</a>
+    <a href="#za-nas">За нас</a>
+    <a href="#galeriya">Галерия</a>
+    <a href="#rezervatsiya">Контакти</a>
+  </div>
+  <a href="#rezervatsiya" class="btn-cta">ЗАПАЗИ ЧАС</a>
+</nav>
+
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section id="hero">
+  <div class="scanline"></div>
+
+  <div class="hero-text">
+    <div class="hero-tag">— Бръснарница · Варна, България</div>
+    <div class="hero-heading">DANI<br>CUTS</div>
+    <div class="amber-rule" style="margin: 36px 0 28px;"></div>
+    <p class="hero-tagline">Прецизни мъжки прически. Бръснене.<br>Без компромис.</p>
+    <div class="hero-ctas">
+      <a href="#rezervatsiya" class="btn-primary">ЗАПАЗИ ЧАС →</a>
+      <a href="#uslug" class="btn-ghost">ВИЖДАМ УСЛУГИТЕ</a>
+    </div>
+    <!-- TODO: Замени с реалния телефон -->
+    <div class="hero-phone">+359 88 123 4567</div>
+  </div>
+
+  <div class="hero-img">
+    <!--
+      СНИМКА HERO: Качи снимката в папка images/ и замени placeholder-а по-долу.
+      Изтрий div.img-placeholder и добави:
+      <img src="images/hero.jpg" alt="Dani Cuts — Бръснарница Варна">
+    -->
+    <div class="img-placeholder" style="min-height: 480px;">
+      <span>hero image</span>
+      <span style="font-size:10px; color:#242424;">мъж · прическа · студио</span>
+    </div>
+    <div class="corner-accent ca-tl-h"></div>
+    <div class="corner-accent ca-tl-v"></div>
+    <div class="corner-accent ca-br-h"></div>
+    <div class="corner-accent ca-br-v"></div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-hint-line"></div>
+    <span>Скролни</span>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ УСЛУГИ ═══════════════════ -->
+<section id="uslug">
+  <div class="section-label">01 — Услуги и цени</div>
+  <div class="section-heading">Какво<br>правим</div>
+
+  <div class="srv-grid">
+    <div class="srv-card">
+      <div class="srv-name">Прическа</div>
+      <div class="srv-sub">Haircut · Класическа или модерна</div>
+      <div class="srv-price">25 €</div>
+    </div>
+    <div class="srv-card">
+      <div class="srv-name">Бръснене</div>
+      <div class="srv-sub">Classic Hot Shave</div>
+      <div class="srv-price">20 €</div>
+    </div>
+    <div class="srv-card">
+      <div class="srv-name">Комбо</div>
+      <div class="srv-sub">Прическа + Бръснене</div>
+      <div class="srv-price">40 €</div>
+    </div>
+    <div class="srv-card">
+      <div class="srv-name">Детска</div>
+      <div class="srv-sub">Kids Haircut · До 12г.</div>
+      <div class="srv-price">18 €</div>
+    </div>
+    <div class="srv-card">
+      <div class="srv-name">Брада</div>
+      <div class="srv-sub">Beard Trim + Оформяне</div>
+      <div class="srv-price">15 €</div>
+    </div>
+    <div class="srv-card">
+      <div class="srv-name">Линия</div>
+      <div class="srv-sub">Line Up · Edge Up</div>
+      <div class="srv-price">10 €</div>
+    </div>
+  </div>
+
+  <div class="cta-strip">
+    <div class="cta-strip-h">Готов за нова прическа?</div>
+    <a href="#rezervatsiya" class="btn-cta-white">ЗАПАЗИ ЧАС →</a>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ ЗА НАС ═══════════════════ -->
+<section id="za-nas">
+  <div class="section-label">02 — Историята</div>
+  <div class="section-heading">За<br>нас</div>
+
+  <div class="abt-cols">
+    <div class="abt-story">
+      <!-- TODO: Клиентът да предостави финалния текст -->
+      <p>Dani Cuts е основана от Дани Петров — бръснар с над 10 години опит в България и чужбина. Всичко започна с простото убеждение, че всеки мъж заслужава прецизна прическа и истинско внимание към детайла.</p>
+      <p>Днес студиото е любимо място за мъже от Варна и не само. Работим с най-добрите продукти, инструменти и — най-важното — с уважение към времето на клиента.</p>
+
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-n">10+</div>
+          <div class="stat-l">Год. опит</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">2 500+</div>
+          <div class="stat-l">Доволни клиенти</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">2020</div>
+          <div class="stat-l">Основана</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="abt-img">
+      <!--
+        СНИМКА ПОРТРЕТ: Качи снимката в папка images/ и замени placeholder-а:
+        <img src="images/portrait.jpg" alt="Дани Петров — бръснар">
+      -->
+      <div class="img-placeholder" style="height: 560px;">
+        <span>portrait</span>
+        <span style="font-size:10px; color:#242424;">дани · бръснар</span>
+      </div>
+      <div class="corner-accent ca-tl-h"></div>
+      <div class="corner-accent ca-tl-v"></div>
+      <div class="corner-accent ca-br-h"></div>
+      <div class="corner-accent ca-br-v"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ ГАЛЕРИЯ ═══════════════════ -->
+<section id="galeriya">
+  <div class="section-label">03 — Галерия</div>
+  <div class="section-heading">Нашата<br>работа</div>
+
+  <div class="gal-grid">
+    <!--
+      СНИМКИ ГАЛЕРИЯ: Качи снимките в папка images/ и замени всеки placeholder.
+      shot 01 и shot 03 са portrait (вертикални) — grid-row: span 2.
+      Пример за замяна:
+        Изтрий div.gal-ph и добави: <img src="images/gallery-1.jpg" alt="Прическа">
+    -->
+    <div class="gal-cell" style="grid-row: span 2;">
+      <div class="gal-ph"><span>shot 01</span></div>
+    </div>
+    <div class="gal-cell">
+      <div class="gal-ph"><span>shot 02</span></div>
+    </div>
+    <div class="gal-cell" style="grid-row: span 2;">
+      <div class="gal-ph"><span>shot 03</span></div>
+    </div>
+    <div class="gal-cell">
+      <div class="gal-ph"><span>shot 04</span></div>
+    </div>
+    <div class="gal-cell">
+      <div class="gal-ph"><span>shot 05</span></div>
+    </div>
+    <div class="gal-cell">
+      <div class="gal-ph"><span>shot 06</span></div>
+    </div>
+    <div class="gal-cell">
+      <div class="gal-ph"><span>shot 07</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ РЕЗЕРВАЦИЯ ═══════════════════ -->
+<section id="rezervatsiya">
+  <div class="section-label">04 — Резервация</div>
+  <div class="section-heading">Запази<br>своя час</div>
+
+  <div class="bk-cols">
+
+    <!-- Calendly Inline Widget -->
+    <div class="bk-calendly">
+      <!--
+        CALENDLY: Замени YOUR_CALENDLY_USERNAME с реалния ти Calendly username.
+        Намираш го в calendly.com → Settings → My link
+        Пример: ако линкът ти е calendly.com/danicuts → пиши danicuts
+      -->
+      <div
+        class="calendly-inline-widget"
+        data-url="https://calendly.com/YOUR_CALENDLY_USERNAME?background_color=080808&text_color=F0EAE0&primary_color=C97A2E&hide_gdpr_banner=1"
+        style="min-width: 320px; height: 700px;">
+      </div>
+    </div>
+
+    <!-- Info Panel -->
+    <div class="bk-info">
+      <div class="info-label">— Работно време</div>
+      <div class="hours-table">
+        <div class="hour-row">
+          <span class="hour-day">Понеделник – Петък</span>
+          <span class="hour-time">09:00 – 20:00</span>
+        </div>
+        <div class="hour-row">
+          <span class="hour-day">Събота</span>
+          <span class="hour-time">10:00 – 18:00</span>
+        </div>
+        <div class="hour-row" style="border-bottom: none;">
+          <span class="hour-day">Неделя</span>
+          <span style="font-size:14px; color:rgba(240,234,224,.28);">Почивен</span>
+        </div>
+      </div>
+
+      <div class="info-label">— Контакти</div>
+      <div class="contacts">
+        <!-- TODO: Замени с реалните контакти -->
+        <div class="contact-line">+359 88 123 4567</div>
+        <div class="contact-line">info@danicuts.bg</div>
+        <div class="contact-line">бул. Сливница 42, Варна<br>Ет. 1</div>
+      </div>
+
+      <!--
+        GOOGLE MAPS: Отиди на maps.google.com → намери локацията → Share → Embed a map
+        → копирай src линка от iframe тага и го постави по-долу.
+        След това изтрий div.map-ph и разкоментирай div.map-wrap.
+      -->
+      <div class="map-ph">
+        <span>google maps · варна</span>
+      </div>
+      <!--
+      <div class="map-wrap">
+        <iframe
+          src="ПОСТАВИ_GOOGLE_MAPS_EMBED_SRC_ТУК"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      -->
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <div class="ft-cols">
+    <div class="ft-brand">
+      <div class="ft-logo">DANI CUTS</div>
+      <div class="ft-tagline">Прецизни мъжки прически.<br>Варна, България.</div>
+    </div>
+    <div class="ft-col">
+      <div class="ft-col-label">Навигация</div>
+      <div class="ft-links">
+        <a href="#uslug">Услуги и цени</a>
+        <a href="#za-nas">За нас</a>
+        <a href="#galeriya">Галерия</a>
+        <a href="#rezervatsiya">Резервация</a>
+      </div>
+    </div>
+    <div class="ft-col">
+      <div class="ft-col-label">Работно време</div>
+      <div class="ft-links">
+        <div>Пон – Пет: 09:00 – 20:00</div>
+        <div>Събота: 10:00 – 18:00</div>
+        <div style="color:rgba(240,234,224,.28);">Неделя: почивен</div>
+      </div>
+    </div>
+    <div class="ft-col">
+      <div class="ft-col-label">Социални</div>
+      <div class="ft-links">
+        <!-- TODO: Замени с реалните социални линкове -->
+        <a href="https://instagram.com/danicuts" target="_blank" rel="noopener">Instagram →</a>
+        <a href="https://facebook.com/danicuts" target="_blank" rel="noopener">Facebook →</a>
+        <a href="https://tiktok.com/@danicuts" target="_blank" rel="noopener">TikTok →</a>
+      </div>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <div class="copyright">© 2025 DANI CUTS · Всички права запазени</div>
+    <div class="amber-rule"></div>
+  </div>
+</footer>
+
+
+<!-- Calendly Widget Script — не трие! -->
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+</body>
+</html>
