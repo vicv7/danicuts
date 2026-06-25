@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    html, body { margin: 0; padding: 0; background: #080808; color: #F0EAE0; }
+    * { box-sizing: border-box; }
+    input, select, textarea, button { font-family: 'Space Grotesk', sans-serif; }
+    ::placeholder { color: rgba(240,234,224,.22); }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: #C97A2E !important; }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #080808; }
+    ::-webkit-scrollbar-thumb { background: #C97A2E; border-radius: 2px; }
+    @media (max-width: 900px) {
+      .nav-links { display: none !important; }
+      .hero-cols { flex-direction: column !important; gap: 0 !important; }
+      .hero-img { display: none !important; }
+      .hero-text { width: 100% !important; }
+      .hero-heading { font-size: 110px !important; }
+      .srv-grid { grid-template-columns: 1fr 1fr !important; }
+      .abt-cols { flex-direction: column !important; }
+      .abt-img { display: none !important; }
+      .gal-grid { grid-template-columns: 1fr 1fr !important; }
+      .bk-cols { flex-direction: column !important; }
+      .info-panel { width: 100% !important; }
+      .ft-cols { flex-direction: column !important; gap: 40px !important; }
+      #hero, #uslug, #za-nas, #galeriya, #rezervatsiya, footer { padding-left: 40px !important; padding-right: 40px !important; }
+      .cta-strip { flex-direction: column !important; gap: 24px !important; text-align: center; }
+    }
+    @media (max-width: 600px) {
+      .hero-heading { font-size: 86px !important; }
+      .srv-grid { grid-template-columns: 1fr !important; }
+      #hero, #uslug, #za-nas, #galeriya, #rezervatsiya, footer { padding-left: 24px !important; padding-right: 24px !important; }
+      .form-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</helmet>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav style="position:sticky; top:0; z-index:100; height:80px; display:flex; align-items:center; justify-content:space-between; padding:0 80px; background:rgba(8,8,8,.96); border-bottom:1px solid rgba(240,234,224,.06); backdrop-filter:blur(10px);">
+  <a href="#hero" style="font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:900; letter-spacing:0.22em; color:#F0EAE0; text-decoration:none; text-transform:uppercase;">DANI CUTS</a>
+  <div class="nav-links" style="display:flex; gap:44px; align-items:center;">
+    <a href="#uslug" style="font-size:12px; letter-spacing:0.1em; color:rgba(240,234,224,.38); text-transform:uppercase; text-decoration:none;">Услуги</a>
+    <a href="#za-nas" style="font-size:12px; letter-spacing:0.1em; color:rgba(240,234,224,.38); text-transform:uppercase; text-decoration:none;">За нас</a>
+    <a href="#galeriya" style="font-size:12px; letter-spacing:0.1em; color:rgba(240,234,224,.38); text-transform:uppercase; text-decoration:none;">Галерия</a>
+    <a href="#rezervatsiya" style="font-size:12px; letter-spacing:0.1em; color:rgba(240,234,224,.38); text-transform:uppercase; text-decoration:none;">Контакти</a>
+  </div>
+  <a href="#rezervatsiya" style="background:#C97A2E; color:#fff; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.2em; padding:14px 32px; text-transform:uppercase; text-decoration:none; white-space:nowrap;">ЗАПАЗИ ЧАС</a>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section id="hero" style="min-height:calc(100vh - 80px); display:flex; align-items:center; padding:0 120px; gap:80px; background:#080808; position:relative; overflow:hidden;">
+  <div style="position:absolute; inset:0; pointer-events:none; background:repeating-linear-gradient(0deg,transparent 0,transparent 3px,rgba(255,255,255,.006) 3px,rgba(255,255,255,.006) 4px);"></div>
+
+  <!-- Text -->
+  <div class="hero-text hero-cols" style="flex:none; width:580px; padding:80px 0; z-index:1;">
+    <div style="font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.28em; color:#C97A2E; text-transform:uppercase; margin-bottom:36px;">— Бръснарница · Варна, България</div>
+    <div class="hero-heading" style="font-family:'Barlow Condensed',sans-serif; font-size:168px; font-weight:900; line-height:0.83; color:#F0EAE0; letter-spacing:-0.01em; text-transform:uppercase;">DANI<br>CUTS</div>
+    <div style="width:52px; height:3px; background:#C97A2E; margin:36px 0 28px;"></div>
+    <p style="font-size:17px; color:rgba(240,234,224,.44); line-height:1.7; margin:0 0 44px; max-width:380px;">Прецизни мъжки прически. Бръснене.<br>Без компромис.</p>
+    <div style="display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
+      <a href="#rezervatsiya" style="display:inline-block; background:#C97A2E; color:#fff; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:16px; letter-spacing:0.18em; padding:18px 52px; text-transform:uppercase; text-decoration:none; white-space:nowrap;">ЗАПАЗИ ЧАС →</a>
+      <a href="#uslug" style="font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:14px; letter-spacing:0.12em; color:rgba(240,234,224,.42); text-transform:uppercase; text-decoration:none; border-bottom:1px solid rgba(240,234,224,.18); padding-bottom:2px; white-space:nowrap;">ВИЖДАМ УСЛУГИТЕ</a>
+    </div>
+    <div style="margin-top:56px; font-size:13px; color:rgba(240,234,224,.22); letter-spacing:0.04em;">+359 88 123 4567</div>
+  </div>
+
+  <!-- Hero image -->
+  <div class="hero-img" style="flex:1; align-self:stretch; position:relative; min-height:480px; overflow:hidden; z-index:1;">
+    <div style="position:absolute; inset:0; background:repeating-linear-gradient(-45deg,#131313 0,#131313 12px,#0E0E0E 12px,#0E0E0E 24px); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px;">
+      <div style="font-family:monospace; font-size:11px; color:#303030; letter-spacing:0.15em; text-transform:uppercase;">hero image</div>
+      <div style="font-family:monospace; font-size:10px; color:#242424; letter-spacing:0.08em;">мъж · прическа · студио</div>
+    </div>
+    <div style="position:absolute; top:0; left:0; width:52px; height:3px; background:#C97A2E;"></div>
+    <div style="position:absolute; top:0; left:0; width:3px; height:52px; background:#C97A2E;"></div>
+    <div style="position:absolute; bottom:0; right:0; width:52px; height:3px; background:#C97A2E;"></div>
+    <div style="position:absolute; bottom:0; right:0; width:3px; height:52px; background:#C97A2E;"></div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div style="position:absolute; bottom:36px; left:120px; display:flex; align-items:center; gap:12px; z-index:1;">
+    <div style="width:36px; height:1px; background:rgba(240,234,224,.18);"></div>
+    <span style="font-size:10px; letter-spacing:0.2em; color:rgba(240,234,224,.22); text-transform:uppercase;">Скролни</span>
+  </div>
+</section>
+
+<!-- ═══════════════ УСЛУГИ ═══════════════ -->
+<section id="uslug" style="background:#0A0A0A; border-top:1px solid rgba(201,122,46,.15); padding:96px 120px;">
+  <div style="font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.28em; color:#C97A2E; text-transform:uppercase; margin-bottom:16px;">01 — Услуги и цени</div>
+  <div style="font-family:'Barlow Condensed',sans-serif; font-size:80px; font-weight:900; color:#F0EAE0; text-transform:uppercase; line-height:0.88; margin-bottom:64px;">Какво<br>правим</div>
+
+  <div class="srv-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(240,234,224,.05); margin-bottom:1px;">
+
+    <div style="background:#0A0A0A; padding:36px 32px;">
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:600; color:#F0EAE0; text-transform:uppercase; line-height:1.1; letter-spacing:0.07em; margin-bottom:10px;">Прическа</div>
+      <div style="font-size:12px; color:rgba(240,234,224,.28); letter-spacing:0.06em; margin-bottom:24px;">Haircut · Класическа или модерна</div>
+      <div style="font-family:'Barlow Condensed',sans-serif; font-size:38px; font-weight:700; color:#C97A2E;">25 €</div>
+    </div>
+
+    <div style="background:#0A0A0A; padding:36px 32px;">
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:600; color:#F0EAE0; text-transform:uppercase; line-height:1.1; letter-spacing:0.07em; margin-bottom:10px;">Бръснене</div>
+      <div style="font-size:12px; color:rgba(240,234,224,.28); letter-spacing:0.06em; margin-bottom:24px;">Classic Hot Shave</div>
+      <div style="font-family:'Barlow Condensed',sans-serif; font-size:38px; font-weight:700; color:#C97A2E;">20 €</div>
+    </div>
+
+    <div style="background:#0A0A0A; padding:36px 32px;">
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:600; color:#F0EAE0; text-transform:uppercase; line-height:1.1; letter-spacing:0.07em; margin-bottom:10px;">Комбо</div>
+      <div style="font-size:12px; color:rgba(240,234,224,.28); letter-spacing:0.06em; margin-bottom:24px;">Прическа + Бръснене</div>
+      <div style="font-family:'Barlow Condensed',sans-serif; font-size:38px; font-weight:700; color:#C97A2E;">40 €</div>
+    </div>
+
+    <div style="background:#0A0A0A; padding:36px 32px;">
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:600; color:#F0EAE0; text-transform:uppercase; line-height:1.1; letter-spacing:0.07em; margin-bottom:10px;">Детска</div>
+      <div style="font-size:12px; color:rgba(240,234,224,.28); letter-spacing:0.06em; margin-bottom:24px;">Kids Haircut · До 12г.</div>
+      <div style="font-family:'Barlow Condensed',sans-serif; font-size:38px; font-weight:700; color:#C97A2E;">18 €</div>
+    </div>
+
+    <div style="background:#0A0A0A; padding:36px 32px;">
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:600; color:#F0EAE0; text-transform:uppercase; line-height:1.1; letter-spacing:0.07em; margin-bottom:10px;">Брада</div>
+      <div style="font-size:12px; color:rgba(240,234,224,.28); letter-spacing:0.06em; margin-bottom:24px;">Beard Trim + Оформяне</div>
+      <div style="font-family:'Barlow Condensed',sans-serif; font-size:38px; font-weight:700; color:#C97A2E;">15 €</div>
+    </div>
+
+    <div style="background:#0A0A0A; padding:36px 32px;">
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:600; color:#F0EAE0; text-transform:uppercase; line-height:1.1; letter-spacing:0.07em; margin-bottom:10px;">Линия</div>
+      <div style="font-size:12px; color:rgba(240,234,224,.28); letter-spacing:0.06em; margin-bottom:24px;">Line Up · Edge Up</div>
+      <div style="font-family:'Barlow Condensed',sans-serif; font-size:38px; font-weight:700; color:#C97A2E;">10 €</div>
+    </div>
+  </div>
+
+  <!-- CTA strip -->
+  <div class="cta-strip" style="background:#C97A2E; padding:40px 56px; display:flex; align-items:center; justify-content:space-between; gap:32px; margin-top:64px;">
+    <div style="font-family:'Barlow Condensed',sans-serif; font-size:52px; font-weight:900; color:#fff; text-transform:uppercase; line-height:1;">Готов за нова прическа?</div>
+    <a href="#rezervatsiya" style="background:#fff; color:#C97A2E; font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:16px; letter-spacing:0.18em; padding:20px 56px; text-transform:uppercase; text-decoration:none; white-space:nowrap;">ЗАПАЗИ ЧАС →</a>
+  </div>
+</section>
+
+<!-- ═══════════════ ЗА НАС ═══════════════ -->
+<section id="za-nas" style="background:#080808; border-top:1px solid rgba(240,234,224,.06); padding:96px 120px;">
+  <div style="font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.28em; color:#C97A2E; text-transform:uppercase; margin-bottom:16px;">02 — Историята</div>
+  <div style="font-family:'Barlow Condensed',sans-serif; font-size:80px; font-weight:900; color:#F0EAE0; text-transform:uppercase; line-height:0.88; margin-bottom:64px;">За<br>нас</div>
+
+  <div class="abt-cols" style="display:flex; gap:80px; align-items:flex-start;">
+
+    <!-- Story -->
+    <div style="flex:1;">
+      <p style="font-size:19px; color:rgba(240,234,224,.62); line-height:1.75; margin:0 0 24px;">Dani Cuts е основана от Дани Петров — бръснар с над 10 години опит в България и чужбина. Всичко започна с простото убеждение, че всеки мъж заслужава прецизна прическа и истинско внимание към детайла.</p>
+      <p style="font-size:19px; color:rgba(240,234,224,.62); line-height:1.75; margin:0 0 56px;">Днес студиото е любимо място за мъже от Варна и не само. Работим с най-добрите продукти, инструменти и — най-важното — с уважение към времето на клиента.</p>
+
+      <!-- Stats -->
+      <div style="display:flex; gap:0; border-top:1px solid rgba(240,234,224,.08);">
+        <div style="flex:1; padding:32px 0; border-right:1px solid rgba(240,234,224,.08);">
+          <div style="font-family:'Barlow Condensed',sans-serif; font-size:60px; font-weight:900; color:#C97A2E; line-height:1;">10+</div>
+          <div style="font-size:12px; color:rgba(240,234,224,.32); letter-spacing:0.1em; text-transform:uppercase; margin-top:8px;">Год. опит</div>
+        </div>
+        <div style="flex:1; padding:32px 28px; border-right:1px solid rgba(240,234,224,.08);">
+          <div style="font-family:'Barlow Condensed',sans-serif; font-size:60px; font-weight:900; color:#C97A2E; line-height:1;">2 500+</div>
+          <div style="font-size:12px; color:rgba(240,234,224,.32); letter-spacing:0.1em; text-transform:uppercase; margin-top:8px;">Доволни клиенти</div>
+        </div>
+        <div style="flex:1; padding:32px 28px;">
+          <div style="font-family:'Barlow Condensed',sans-serif; font-size:60px; font-weight:900; color:#C97A2E; line-height:1;">2020</div>
+          <div style="font-size:12px; color:rgba(240,234,224,.32); letter-spacing:0.1em; text-transform:uppercase; margin-top:8px;">Основана</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portrait -->
+    <div class="abt-img" style="flex:none; width:420px; height:560px; position:relative; overflow:hidden;">
+      <div style="width:100%; height:100%; background:repeating-linear-gradient(-45deg,#131313 0,#131313 12px,#0E0E0E 12px,#0E0E0E 24px); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px;">
+        <div style="font-family:monospace; font-size:11px; color:#303030; letter-spacing:0.15em; text-transform:uppercase;">portrait</div>
+        <div style="font-family:monospace; font-size:10px; color:#222; letter-spacing:0.08em;">дани · бръснар</div>
+      </div>
+      <div style="position:absolute; top:0; left:0; width:48px; height:3px; background:#C97A2E;"></div>
+      <div style="position:absolute; top:0; left:0; width:3px; height:48px; background:#C97A2E;"></div>
+      <div style="position:absolute; bottom:0; right:0; width:48px; height:3px; background:#C97A2E;"></div>
+      <div style="position:absolute; bottom:0; right:0; width:3px; height:48px; background:#C97A2E;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ГАЛЕРИЯ ═══════════════ -->
+<section id="galeriya" style="background:#0A0A0A; border-top:1px solid rgba(201,122,46,.15); padding:96px 120px;">
+  <div style="font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.28em; color:#C97A2E; text-transform:uppercase; margin-bottom:16px;">03 — Галерия</div>
+  <div style="font-family:'Barlow Condensed',sans-serif; font-size:80px; font-weight:900; color:#F0EAE0; text-transform:uppercase; line-height:0.88; margin-bottom:48px;">Нашата<br>работа</div>
+
+  <div class="gal-grid" style="display:grid; grid-template-columns:repeat(3,1fr); grid-auto-rows:210px; gap:3px; grid-auto-flow:row dense;">
+
+    <div style="grid-row:span 2; background:repeating-linear-gradient(-45deg,#141414 0,#141414 10px,#101010 10px,#101010 20px); display:flex; align-items:center; justify-content:center;">
+      <div style="font-family:monospace; font-size:10px; color:#2a2a2a; letter-spacing:0.12em; text-transform:uppercase;">shot 01</div>
+    </div>
+    <div style="background:repeating-linear-gradient(-45deg,#161616 0,#161616 10px,#121212 10px,#121212 20px); display:flex; align-items:center; justify-content:center;">
+      <div style="font-family:monospace; font-size:10px; color:#2a2a2a; letter-spacing:0.12em; text-transform:uppercase;">shot 02</div>
+    </div>
+    <div style="grid-row:span 2; background:repeating-linear-gradient(-45deg,#131313 0,#131313 10px,#0F0F0F 10px,#0F0F0F 20px); display:flex; align-items:center; justify-content:center;">
+      <div style="font-family:monospace; font-size:10px; color:#2a2a2a; letter-spacing:0.12em; text-transform:uppercase;">shot 03</div>
+    </div>
+    <div style="background:repeating-linear-gradient(-45deg,#171717 0,#171717 10px,#131313 10px,#131313 20px); display:flex; align-items:center; justify-content:center;">
+      <div style="font-family:monospace; font-size:10px; color:#2a2a2a; letter-spacing:0.12em; text-transform:uppercase;">shot 04</div>
+    </div>
+    <div style="background:repeating-linear-gradient(-45deg,#151515 0,#151515 10px,#111111 10px,#111111 20px); display:flex; align-items:center; justify-content:center;">
+      <div style="font-family:monospace; font-size:10px; color:#2a2a2a; letter-spacing:0.12em; text-transform:uppercase;">shot 05</div>
+    </div>
+    <div style="background:repeating-linear-gradient(-45deg,#141414 0,#141414 10px,#101010 10px,#101010 20px); display:flex; align-items:center; justify-content:center;">
+      <div style="font-family:monospace; font-size:10px; color:#2a2a2a; letter-spacing:0.12em; text-transform:uppercase;">shot 06</div>
+    </div>
+    <div style="background:repeating-linear-gradient(-45deg,#161616 0,#161616 10px,#121212 10px,#121212 20px); display:flex; align-items:center; justify-content:center;">
+      <div style="font-family:monospace; font-size:10px; color:#2a2a2a; letter-spacing:0.12em; text-transform:uppercase;">shot 07</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ РЕЗЕРВАЦИЯ ═══════════════ -->
+<section id="rezervatsiya" style="background:#080808; border-top:1px solid rgba(240,234,224,.06); padding:96px 120px;">
+  <div style="font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.28em; color:#C97A2E; text-transform:uppercase; margin-bottom:16px;">04 — Резервация</div>
+  <div style="font-family:'Barlow Condensed',sans-serif; font-size:80px; font-weight:900; color:#F0EAE0; text-transform:uppercase; line-height:0.88; margin-bottom:64px;">Запази<br>своя час</div>
+
+  <div class="bk-cols" style="display:flex; gap:80px; align-items:flex-start;">
+
+    <!-- Form -->
+    <div style="flex:1;">
+      <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:56px 48px; background:#0E0E0E; border:1px solid rgba(201,122,46,.25); text-align:center;">
+          <div style="font-family:'Barlow Condensed',sans-serif; font-size:18px; font-weight:700; letter-spacing:0.2em; color:#C97A2E; text-transform:uppercase; margin-bottom:16px;">✓ Заявката е изпратена</div>
+          <p style="font-size:16px; color:rgba(240,234,224,.5); line-height:1.7; margin:0 0 32px;">Ще те потвърдим по телефон в рамките на 1 час.</p>
+          <button onClick="{{ resetForm }}" style="background:transparent; border:1px solid #C97A2E; color:#C97A2E; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:14px; letter-spacing:0.15em; padding:14px 40px; text-transform:uppercase; cursor:pointer;">НОВА РЕЗЕРВАЦИЯ</button>
+        </div>
+      </sc-if>
+      <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ handleSubmit }}" style="display:flex; flex-direction:column; gap:20px;">
+          <div class="form-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+            <div>
+              <label style="display:block; font-size:11px; letter-spacing:0.15em; color:rgba(240,234,224,.38); text-transform:uppercase; margin-bottom:8px;">Три имена</label>
+              <input type="text" required="" placeholder="Иван Петров" style="width:100%; background:#0E0E0E; border:1px solid rgba(240,234,224,.1); color:#F0EAE0; font-size:15px; padding:14px 16px; transition:border-color .2s;">
+            </div>
+            <div>
+              <label style="display:block; font-size:11px; letter-spacing:0.15em; color:rgba(240,234,224,.38); text-transform:uppercase; margin-bottom:8px;">Телефон</label>
+              <input type="tel" required="" placeholder="+359 88 ..." style="width:100%; background:#0E0E0E; border:1px solid rgba(240,234,224,.1); color:#F0EAE0; font-size:15px; padding:14px 16px;">
+            </div>
+          </div>
+          <div>
+            <label style="display:block; font-size:11px; letter-spacing:0.15em; color:rgba(240,234,224,.38); text-transform:uppercase; margin-bottom:8px;">Услуга</label>
+            <select required="" style="width:100%; background:#0E0E0E; border:1px solid rgba(240,234,224,.1); color:#F0EAE0; font-size:15px; padding:14px 16px; appearance:none; -webkit-appearance:none;">
+              <option value="" style="background:#0E0E0E;">Избери услуга...</option>
+              <option style="background:#0E0E0E;">Прическа — 25 €</option>
+              <option style="background:#0E0E0E;">Бръснене — 20 €</option>
+              <option style="background:#0E0E0E;">Комбо (Прическа + Бръснене) — 40 €</option>
+              <option style="background:#0E0E0E;">Детска прическа — 18 €</option>
+              <option style="background:#0E0E0E;">Оформяне на брада — 15 €</option>
+              <option style="background:#0E0E0E;">Линия / Line Up — 10 €</option>
+            </select>
+          </div>
+          <div class="form-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+            <div>
+              <label style="display:block; font-size:11px; letter-spacing:0.15em; color:rgba(240,234,224,.38); text-transform:uppercase; margin-bottom:8px;">Дата</label>
+              <input type="date" required="" style="width:100%; background:#0E0E0E; border:1px solid rgba(240,234,224,.1); color:#F0EAE0; font-size:15px; padding:14px 16px; color-scheme:dark;">
+            </div>
+            <div>
+              <label style="display:block; font-size:11px; letter-spacing:0.15em; color:rgba(240,234,224,.38); text-transform:uppercase; margin-bottom:8px;">Предпочитан час</label>
+              <select style="width:100%; background:#0E0E0E; border:1px solid rgba(240,234,224,.1); color:#F0EAE0; font-size:15px; padding:14px 16px; appearance:none; -webkit-appearance:none;">
+                <option style="background:#0E0E0E;">09:00</option>
+                <option style="background:#0E0E0E;">09:30</option>
+                <option style="background:#0E0E0E;">10:00</option>
+                <option style="background:#0E0E0E;">10:30</option>
+                <option style="background:#0E0E0E;">11:00</option>
+                <option style="background:#0E0E0E;">11:30</option>
+                <option style="background:#0E0E0E;">12:00</option>
+                <option style="background:#0E0E0E;">13:00</option>
+                <option style="background:#0E0E0E;">14:00</option>
+                <option style="background:#0E0E0E;">14:30</option>
+                <option style="background:#0E0E0E;">15:00</option>
+                <option style="background:#0E0E0E;">16:00</option>
+                <option style="background:#0E0E0E;">17:00</option>
+                <option style="background:#0E0E0E;">18:00</option>
+                <option style="background:#0E0E0E;">19:00</option>
+                <option style="background:#0E0E0E;">19:30</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" style="background:#C97A2E; border:none; color:#fff; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:17px; letter-spacing:0.2em; padding:20px 0; text-transform:uppercase; cursor:pointer; width:100%; margin-top:4px;">ЗАПАЗИ СВОЯ ЧАС →</button>
+        </form>
+      </sc-if>
+    </div>
+
+    <!-- Info panel -->
+    <div class="info-panel" style="flex:none; width:340px; padding-top:4px;">
+
+      <!-- Hours -->
+      <div style="margin-bottom:44px;">
+        <div style="font-size:11px; letter-spacing:0.22em; color:#C97A2E; text-transform:uppercase; margin-bottom:20px;">— Работно време</div>
+        <div style="border-top:1px solid rgba(240,234,224,.07);">
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:14px 0; border-bottom:1px solid rgba(240,234,224,.07);">
+            <span style="font-size:14px; color:rgba(240,234,224,.48);">Понеделник – Петък</span>
+            <span style="font-size:14px; color:#F0EAE0; font-weight:500;">09:00 – 20:00</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:14px 0; border-bottom:1px solid rgba(240,234,224,.07);">
+            <span style="font-size:14px; color:rgba(240,234,224,.48);">Събота</span>
+            <span style="font-size:14px; color:#F0EAE0; font-weight:500;">10:00 – 18:00</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:14px 0;">
+            <span style="font-size:14px; color:rgba(240,234,224,.48);">Неделя</span>
+            <span style="font-size:14px; color:rgba(240,234,224,.28);">Почивен</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contacts -->
+      <div style="margin-bottom:40px;">
+        <div style="font-size:11px; letter-spacing:0.22em; color:#C97A2E; text-transform:uppercase; margin-bottom:20px;">— Контакти</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="font-size:15px; color:rgba(240,234,224,.58);">+359 88 123 4567</div>
+          <div style="font-size:15px; color:rgba(240,234,224,.58);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1e7a7f70777d6b6a6d5e79737f7772307d7173">[email&#160;protected]</a></div>
+          <div style="font-size:15px; color:rgba(240,234,224,.58); line-height:1.55;">бул. Сливница 42, Варна<br>Ет. 1</div>
+        </div>
+      </div>
+
+      <!-- Map placeholder -->
+      <div style="height:180px; background:repeating-linear-gradient(-45deg,#131313 0,#131313 10px,#0E0E0E 10px,#0E0E0E 20px); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:6px; border:1px solid rgba(240,234,224,.06);">
+        <div style="font-family:monospace; font-size:10px; color:#2c2c2c; letter-spacing:0.12em; text-transform:uppercase;">google maps</div>
+        <div style="font-family:monospace; font-size:10px; color:#222; letter-spacing:0.08em;">локация · варна</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer style="background:#060606; border-top:1px solid rgba(240,234,224,.06); padding:72px 120px 36px;">
+  <div class="ft-cols" style="display:flex; gap:64px; margin-bottom:56px;">
+    <div style="flex:2;">
+      <div style="font-family:'Barlow Condensed',sans-serif; font-size:26px; font-weight:900; letter-spacing:0.22em; color:#F0EAE0; text-transform:uppercase; margin-bottom:12px;">DANI CUTS</div>
+      <div style="font-size:14px; color:rgba(240,234,224,.32); line-height:1.65; max-width:240px;">Прецизни мъжки прически.<br>Варна, България.</div>
+    </div>
+    <div style="flex:1;">
+      <div style="font-size:11px; letter-spacing:0.2em; color:#C97A2E; text-transform:uppercase; margin-bottom:20px;">Навигация</div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <a href="#uslug" style="font-size:14px; color:rgba(240,234,224,.4); text-decoration:none;">Услуги и цени</a>
+        <a href="#za-nas" style="font-size:14px; color:rgba(240,234,224,.4); text-decoration:none;">За нас</a>
+        <a href="#galeriya" style="font-size:14px; color:rgba(240,234,224,.4); text-decoration:none;">Галерия</a>
+        <a href="#rezervatsiya" style="font-size:14px; color:rgba(240,234,224,.4); text-decoration:none;">Резервация</a>
+      </div>
+    </div>
+    <div style="flex:1;">
+      <div style="font-size:11px; letter-spacing:0.2em; color:#C97A2E; text-transform:uppercase; margin-bottom:20px;">Работно време</div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="font-size:14px; color:rgba(240,234,224,.4);">Пон – Пет: 09:00 – 20:00</div>
+        <div style="font-size:14px; color:rgba(240,234,224,.4);">Събота: 10:00 – 18:00</div>
+        <div style="font-size:14px; color:rgba(240,234,224,.28);">Неделя: почивен</div>
+      </div>
+    </div>
+    <div style="flex:1;">
+      <div style="font-size:11px; letter-spacing:0.2em; color:#C97A2E; text-transform:uppercase; margin-bottom:20px;">Социални</div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <a href="#" style="font-size:14px; color:rgba(240,234,224,.4); text-decoration:none;">Instagram →</a>
+        <a href="#" style="font-size:14px; color:rgba(240,234,224,.4); text-decoration:none;">Facebook →</a>
+        <a href="#" style="font-size:14px; color:rgba(240,234,224,.4); text-decoration:none;">TikTok →</a>
+      </div>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(240,234,224,.06); padding-top:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+    <div style="font-size:12px; color:rgba(240,234,224,.2); letter-spacing:0.04em;">© 2025 DANI CUTS · Всички права запазени</div>
+    <div style="width:36px; height:2px; background:#C97A2E;"></div>
+  </div>
+</footer>
+</x-dc>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { submitted: false };
+  renderVals() {
+    return {
+      submitted: this.state.submitted,
+      notSubmitted: !this.state.submitted,
+      handleSubmit: (e) => {
+        e && e.preventDefault && e.preventDefault();
+        this.setState({ submitted: true });
+      },
+      resetForm: () => this.setState({ submitted: false })
+    };
+  }
+}
+</script>
+</body>
+</html>
