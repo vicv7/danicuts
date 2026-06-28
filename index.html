@@ -11,13 +11,13 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Onest:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     /* ── RESET ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Space Grotesk', sans-serif; background: #080808; color: #F0EAE0; }
+    body { font-family: 'Onest', sans-serif; background: #080808; color: #F0EAE0; }
     a { color: inherit; }
     img { display: block; max-width: 100%; }
 
@@ -28,18 +28,24 @@
 
     /* ── SHARED ── */
     .section-label {
-      font-family: 'Barlow Condensed', sans-serif;
+      font-family: 'Oswald', sans-serif;
       font-size: 11px; font-weight: 700;
       letter-spacing: 0.28em; color: #C97A2E;
       text-transform: uppercase; margin-bottom: 16px;
     }
     .section-heading {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 80px; font-weight: 900;
+      font-family: 'Oswald', sans-serif;
+      font-size: 80px; font-weight: 700;
       color: #F0EAE0; text-transform: uppercase;
       line-height: 0.88; margin-bottom: 64px;
     }
     .amber-rule { width: 52px; height: 3px; background: #C97A2E; }
+    /* ── SCROLL REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
     .img-placeholder {
       width: 100%; height: 100%;
       background: repeating-linear-gradient(-45deg, #131313 0, #131313 12px, #0E0E0E 12px, #0E0E0E 24px);
@@ -63,8 +69,8 @@
       backdrop-filter: blur(10px);
     }
     .nav-logo {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 22px; font-weight: 900;
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px; font-weight: 700;
       letter-spacing: 0.22em; color: #F0EAE0;
       text-decoration: none; text-transform: uppercase;
     }
@@ -78,14 +84,47 @@
     .nav-links a:hover { color: #F0EAE0; }
     .btn-cta {
       background: #C97A2E; color: #fff;
-      font-family: 'Barlow Condensed', sans-serif;
+      font-family: 'Oswald', sans-serif;
       font-weight: 700; font-size: 13px;
       letter-spacing: 0.2em; padding: 14px 32px;
       text-transform: uppercase; text-decoration: none;
       border: none; cursor: pointer; white-space: nowrap;
+      border-radius: 6px;
       transition: opacity .2s;
     }
     .btn-cta:hover { opacity: .88; }
+
+    /* ── BURGER + MOBILE MENU ── */
+    .nav-burger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer;
+      padding: 8px; z-index: 110;
+    }
+    .nav-burger span {
+      display: block; width: 26px; height: 2px;
+      background: #F0EAE0; transition: transform .3s, opacity .3s;
+    }
+    .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      position: fixed; top: 80px; left: 0; right: 0; z-index: 99;
+      background: rgba(8, 8, 8, .98); backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(240, 234, 224, .06);
+      flex-direction: column; align-items: stretch;
+      padding: 24px 40px 36px; gap: 4px;
+      transform: translateY(-12px); opacity: 0;
+      pointer-events: none; transition: transform .3s, opacity .3s;
+      display: none;
+    }
+    .mobile-menu.show { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    .mobile-menu a:not(.btn-primary) {
+      font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 500;
+      letter-spacing: 0.06em; color: #F0EAE0; text-decoration: none;
+      text-transform: uppercase; padding: 16px 0;
+      border-bottom: 1px solid rgba(240, 234, 224, .06);
+    }
+    .mobile-menu-cta { margin-top: 24px; text-align: center; display: block; padding-left: 0; padding-right: 0; }
 
     /* ── HERO ── */
     #hero {
@@ -100,14 +139,14 @@
     }
     .hero-text { flex: none; width: 580px; padding: 80px 0; z-index: 1; }
     .hero-tag {
-      font-family: 'Barlow Condensed', sans-serif;
+      font-family: 'Oswald', sans-serif;
       font-size: 11px; font-weight: 700;
       letter-spacing: 0.28em; color: #C97A2E;
       text-transform: uppercase; margin-bottom: 36px;
     }
     .hero-heading {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 168px; font-weight: 900;
+      font-family: 'Oswald', sans-serif;
+      font-size: 168px; font-weight: 700;
       line-height: 0.83; color: #F0EAE0;
       letter-spacing: -0.01em; text-transform: uppercase;
     }
@@ -118,15 +157,15 @@
     .hero-ctas { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
     .btn-primary {
       display: inline-block; background: #C97A2E; color: #fff;
-      font-family: 'Barlow Condensed', sans-serif;
+      font-family: 'Oswald', sans-serif;
       font-weight: 700; font-size: 16px;
       letter-spacing: 0.18em; padding: 18px 52px;
       text-transform: uppercase; text-decoration: none;
-      white-space: nowrap; transition: opacity .2s;
+      white-space: nowrap; border-radius: 6px; transition: opacity .2s;
     }
     .btn-primary:hover { opacity: .88; }
     .btn-ghost {
-      font-family: 'Barlow Condensed', sans-serif;
+      font-family: 'Oswald', sans-serif;
       font-weight: 600; font-size: 14px;
       letter-spacing: 0.12em; color: rgba(240, 234, 224, .42);
       text-transform: uppercase; text-decoration: none;
@@ -158,15 +197,28 @@
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 1px; background: rgba(240, 234, 224, .05);
     }
-    .srv-card { background: #0A0A0A; padding: 36px 32px; }
+    .srv-card {
+      background: #0A0A0A; padding: 36px 32px;
+      position: relative; transition: background .25s;
+    }
+    .srv-card::after {
+      content: ''; position: absolute; left: 0; bottom: 0;
+      width: 100%; height: 2px; background: #C97A2E;
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .3s;
+    }
+    .srv-card:hover { background: #0E0E0E; }
+    .srv-card:hover::after { transform: scaleX(1); }
+    .srv-card:hover .srv-name { color: #C97A2E; }
+    .srv-name { transition: color .25s; }
     .srv-name {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Onest', sans-serif;
       font-size: 24px; font-weight: 600; color: #F0EAE0;
       text-transform: uppercase; line-height: 1.1;
       letter-spacing: 0.07em; margin-bottom: 10px;
     }
     .srv-sub { font-size: 12px; color: rgba(240, 234, 224, .28); letter-spacing: 0.06em; margin-bottom: 24px; }
-    .srv-price { font-family: 'Barlow Condensed', sans-serif; font-size: 38px; font-weight: 700; color: #C97A2E; }
+    .srv-price { font-family: 'Oswald', sans-serif; font-size: 38px; font-weight: 700; color: #C97A2E; }
     .cta-strip {
       background: #C97A2E; padding: 40px 56px;
       display: flex; align-items: center;
@@ -174,18 +226,18 @@
       margin-top: 64px; flex-wrap: wrap;
     }
     .cta-strip-h {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 52px; font-weight: 900;
+      font-family: 'Oswald', sans-serif;
+      font-size: 52px; font-weight: 700;
       color: #fff; text-transform: uppercase; line-height: 1;
     }
     .btn-cta-white {
       background: #fff; color: #C97A2E;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900; font-size: 16px;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700; font-size: 16px;
       letter-spacing: 0.18em; padding: 20px 56px;
       text-transform: uppercase; text-decoration: none;
       white-space: nowrap; border: none; cursor: pointer;
-      transition: opacity .2s;
+      border-radius: 6px; transition: opacity .2s;
     }
     .btn-cta-white:hover { opacity: .88; }
 
@@ -202,7 +254,7 @@
     .stat { flex: 1; padding: 32px 0; border-right: 1px solid rgba(240, 234, 224, .08); }
     .stat:not(:first-child) { padding-left: 28px; }
     .stat:last-child { border-right: none; }
-    .stat-n { font-family: 'Barlow Condensed', sans-serif; font-size: 60px; font-weight: 900; color: #C97A2E; line-height: 1; }
+    .stat-n { font-family: 'Oswald', sans-serif; font-size: 60px; font-weight: 700; color: #C97A2E; line-height: 1; }
     .stat-l { font-size: 12px; color: rgba(240, 234, 224, .32); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 8px; }
     .abt-img { flex: none; width: 420px; height: 560px; position: relative; overflow: hidden; }
     .abt-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
@@ -266,7 +318,7 @@
     }
     .ft-cols { display: flex; gap: 64px; margin-bottom: 56px; }
     .ft-brand { flex: 2; }
-    .ft-logo { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 900; letter-spacing: 0.22em; color: #F0EAE0; text-transform: uppercase; margin-bottom: 12px; }
+    .ft-logo { font-family: 'Oswald', sans-serif; font-size: 26px; font-weight: 700; letter-spacing: 0.22em; color: #F0EAE0; text-transform: uppercase; margin-bottom: 12px; }
     .ft-tagline { font-size: 14px; color: rgba(240, 234, 224, .32); line-height: 1.65; max-width: 240px; }
     .ft-col { flex: 1; }
     .ft-col-label { font-size: 11px; letter-spacing: 0.2em; color: #C97A2E; text-transform: uppercase; margin-bottom: 20px; }
@@ -279,11 +331,23 @@
       justify-content: space-between; align-items: center;
     }
     .copyright { font-size: 12px; color: rgba(240, 234, 224, .2); letter-spacing: 0.04em; }
+    .ft-socials { display: flex; gap: 14px; }
+    .ft-socials a {
+      width: 40px; height: 40px; display: flex;
+      align-items: center; justify-content: center;
+      border: 1px solid rgba(240, 234, 224, .12);
+      color: rgba(240, 234, 224, .5); border-radius: 6px;
+      transition: color .2s, border-color .2s, background .2s;
+    }
+    .ft-socials a:hover { color: #fff; border-color: #C97A2E; background: #C97A2E; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       nav { padding: 0 40px; }
       .nav-links { display: none; }
+      .nav-cta-desktop { display: none; }
+      .nav-burger { display: flex; }
+      .mobile-menu { display: flex; }
       #hero { flex-direction: column; gap: 0; padding: 64px 40px 48px; min-height: auto; }
       .hero-text { width: 100%; padding: 0; }
       .hero-heading { font-size: 110px; }
@@ -322,8 +386,20 @@
     <a href="#galeriya">Галерия</a>
     <a href="#rezervatsiya">Контакти</a>
   </div>
-  <a href="#rezervatsiya" class="btn-cta">ЗАПАЗИ ЧАС</a>
+  <a href="#rezervatsiya" class="btn-cta nav-cta-desktop">ЗАПАЗИ ЧАС</a>
+  <button class="nav-burger" id="navBurger" aria-label="Меню" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Мобилно меню -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#uslug">Услуги</a>
+  <a href="#za-nas">За нас</a>
+  <a href="#galeriya">Галерия</a>
+  <a href="#rezervatsiya">Контакти</a>
+  <a href="#rezervatsiya" class="btn-primary mobile-menu-cta">ЗАПАЗИ ЧАС →</a>
+</div>
 
 
 <!-- ═══════════════════ HERO ═══════════════════ -->
@@ -589,11 +665,25 @@
     </div>
     <div class="ft-col">
       <div class="ft-col-label">Социални</div>
-      <div class="ft-links">
-        <!-- TODO: Замени с реалните социални линкове -->
-        <a href="https://instagram.com/danicuts" target="_blank" rel="noopener">Instagram →</a>
-        <a href="https://facebook.com/danicuts" target="_blank" rel="noopener">Facebook →</a>
-        <a href="https://tiktok.com/@danicuts" target="_blank" rel="noopener">TikTok →</a>
+      <!-- TODO: Замени href-овете с реалните социални линкове -->
+      <div class="ft-socials">
+        <a href="https://instagram.com/danicuts" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4.2"/>
+            <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a href="https://facebook.com/danicuts" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M14 8.5h2.2V5.5h-2.4c-2.3 0-3.8 1.4-3.8 3.8v1.7H8v3h2v7h3.1v-7h2.3l.4-3h-2.7V9.6c0-.8.3-1.1 1.1-1.1z"/>
+          </svg>
+        </a>
+        <a href="https://tiktok.com/@danicuts" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M16.5 3c.3 2 1.5 3.4 3.5 3.6v2.6c-1.3.1-2.5-.3-3.5-1v5.9c0 3.3-2.4 5.4-5.2 5.4-2.6 0-4.6-2-4.6-4.6 0-2.8 2.3-4.7 5.3-4.4v2.7c-.4-.1-.9-.2-1.3-.1-1 .1-1.6.9-1.5 1.9.1.9.9 1.6 1.9 1.5 1-.1 1.6-.9 1.6-2V3h3.3z"/>
+          </svg>
+        </a>
       </div>
     </div>
   </div>
@@ -604,8 +694,68 @@
 </footer>
 
 
-<!-- Calendly Widget Script — не трие! -->
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script>
+  /* ── МОБИЛНО МЕНЮ ── */
+  (function () {
+    var burger = document.getElementById('navBurger');
+    var menu = document.getElementById('mobileMenu');
+    function closeMenu() {
+      burger.classList.remove('open');
+      menu.classList.remove('show');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+    burger.addEventListener('click', function () {
+      var open = menu.classList.toggle('show');
+      burger.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', closeMenu);
+    });
+  })();
+
+  /* ── SCROLL REVEAL ── */
+  (function () {
+    var selectors = '.section-label, .section-heading, .srv-card, .abt-story, .abt-img, .gal-cell, .bk-calendly, .bk-info, .cta-strip, .hero-text, .hero-img';
+    var els = document.querySelectorAll(selectors);
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function (el, i) {
+      el.classList.add('reveal');
+      el.style.transitionDelay = (Math.min(i % 6, 5) * 0.06) + 's';
+      io.observe(el);
+    });
+  })();
+
+  /* ── LAZY CALENDLY ── зарежда се чак когато потребителят наближи секцията за резервация */
+  (function () {
+    var section = document.getElementById('rezervatsiya');
+    if (!section) return;
+    var loaded = false;
+    function loadCalendly() {
+      if (loaded) return;
+      loaded = true;
+      var s = document.createElement('script');
+      s.src = 'https://assets.calendly.com/assets/external/widget.js';
+      s.async = true;
+      document.body.appendChild(s);
+    }
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { loadCalendly(); io.disconnect(); }
+        });
+      }, { rootMargin: '600px 0px' });
+      io.observe(section);
+    } else {
+      loadCalendly();
+    }
+  })();
+</script>
 
 </body>
 </html>
